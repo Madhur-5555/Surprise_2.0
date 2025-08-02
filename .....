@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Khushi 🎉</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fdfbfb, #ebedee);
+      color: #333;
+      overflow-x: hidden;
+    }
+    h1, h2 {
+      text-align: center;
+    }
+    .center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .welcome {
+      height: 100vh;
+      flex-direction: column;
+      background: #f8e1f4;
+      text-align: center;
+    }
+    .welcome h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      color: #c92a5b;
+    }
+    .start-btn {
+      padding: 12px 24px;
+      font-size: 1.2rem;
+      background: #c92a5b;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .start-btn:hover {
+      background: #a91c47;
+    }
+    .section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .hidden {
+      display: none;
+    }
+    .message, .reasons, .slider, .gift, .ending {
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+    .show {
+      opacity: 1;
+    }
+    .gift-box {
+      width: 120px;
+      height: 120px;
+      background: pink;
+      margin: 20px auto;
+      border: 2px dashed #c92a5b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .surprise {
+      background: #fff0f5;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: none;
+      text-align: center;
+    }
+    .slideshow img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li {
+      margin: 10px 0;
+      background: #fff8f9;
+      padding: 10px 15px;
+      border-left: 5px solid #c92a5b;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+<!-- WELCOME SECTION -->
+<section class="welcome center" id="welcome">
+  <h1>🎉 Happy Birthday Khushi 🎂</h1>
+  <button class="start-btn" onclick="startSurprise()">Click to Start</button>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="section hidden" id="main-content">
+
+  <!-- HEARTFELT MESSAGE -->
+  <div class="message" id="message">
+    <h2>Dear Khushi 💌</h2>
+    <p style="margin-top: 20px; font-size: 1.1rem;">
+      <!-- WRITE YOUR PERSONAL MESSAGE HERE -->
+      You mean the world to me... 💖<br>
+      <!-- Add more lines as you wish -->
+    </p>
+  </div>
+
+  <!-- SLIDESHOW -->
+  <div class="slider slideshow" id="slider">
+    <h2 style="margin-bottom: 20px;">Our Best Moments 📸</h2>
+    <!-- ADD YOUR IMAGES HERE -->
+    <img src="https://via.placeholder.com/800x400?text=Add+Your+Photos" alt="Memories">
+  </div>
+
+  <!-- REASONS WHY YOU'RE SPECIAL -->
+  <div class="reasons" id="reasons">
+    <h2>You Are Special Because... 🌟</h2>
+    <ul>
+      <li>You're kind and caring</li>
+      <li>Your smile brightens everything</li>
+      <li>You never give up</li>
+      <!-- ADD MORE -->
+    </ul>
+  </div>
+
+  <!-- GIFT BOX -->
+  <div class="gift" id="gift">
+    <h2>🎁 A Surprise for You!</h2>
+    <div class="gift-box" onclick="revealSurprise()">Open Me</div>
+    <div class="surprise" id="surprise">
+      <!-- WRITE YOUR HIDDEN MESSAGE HERE -->
+      You are not just a person, you're a miracle in my life 💕
+    </div>
+  </div>
+
+  <!-- ENDING -->
+  <div class="ending" id="ending">
+    <h2 style="color:#c92a5b;">Made with Love ❤️</h2>
+    <p>By Madhur</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  &copy; 2025 | Birthday Site for Khushi | Designed by Madhur
+</footer>
+
+<!-- JS FOR INTERACTIVITY + CONFETTI -->
+<script>
+  function startSurprise() {
+    document.getElementById('welcome').style.display = 'none';
+    const main = document.getElementById('main-content');
+    main.classList.remove('hidden');
+    
+    // Show each section one by one
+    setTimeout(() => document.getElementById('message').classList.add('show'), 500);
+    setTimeout(() => document.getElementById('slider').classList.add('show'), 1500);
+    setTimeout(() => document.getElementById('reasons').classList.add('show'), 2500);
+    setTimeout(() => document.getElementById('gift').classList.add('show'), 3500);
+    setTimeout(() => document.getElementById('ending').classList.add('show'), 4500);
+
+    launchConfetti();
+  }
+
+  function revealSurprise() {
+    document.getElementById('surprise').style.display = 'block';
+  }
+
+  // Confetti Generator
+  function launchConfetti() {
+    for (let i = 0; i < 100; i++) {
+      let conf = document.createElement('div');
+      conf.style.position = 'fixed';
+      conf.style.top = Math.random() * window.innerHeight + 'px';
+      conf.style.left = Math.random() * window.innerWidth + 'px';
+      conf.style.width = '10px';
+      conf.style.height = '10px';
+      conf.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+      conf.style.opacity = '0.7';
+      conf.style.borderRadius = '50%';
+      conf.style.zIndex = 9999;
+      conf.style.animation = 'fall 3s linear infinite';
+      document.body.appendChild(conf);
+
+      setTimeout(() => conf.remove(), 3000);
+    }
+  }
+
+  // Confetti Animation
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+</script>
+
+</body>
+</html>
